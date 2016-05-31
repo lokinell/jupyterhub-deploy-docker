@@ -56,6 +56,12 @@ c.JupyterHub.ssl_cert = os.environ['SSL_CERT']
 c.JupyterHub.authenticator_class = 'oauthenticator.GitHubOAuthenticator'
 c.GitHubOAuthenticator.oauth_callback_url = os.environ['OAUTH_CALLBACK_URL']
 
+# Authenticate users with LDAP
+# c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
+# c.LDAPAuthenticator.server_address = 'ldap://127.0.0.1'
+# c.LDAPAuthenticator.server_port = 32769
+# c.LDAPAuthenticator.bind_dn_template = '{username}@datarx.cn'
+
 # Persist hub data on volume mounted inside container
 data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
 c.JupyterHub.db_url = os.path.join('sqlite:///', data_dir, 'jupyterhub.sqlite')

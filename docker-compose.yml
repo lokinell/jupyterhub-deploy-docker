@@ -22,6 +22,7 @@ services:
       - "data:${DATA_VOLUME_CONTAINER}"
     ports:
       - "443:443"
+      - "8080:8080"
     environment:
       # All containers will join this network
       DOCKER_NETWORK_NAME: ${DOCKER_NETWORK_NAME}
